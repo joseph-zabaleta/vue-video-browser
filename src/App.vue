@@ -1,7 +1,13 @@
 <template>
-	<div>
+	<div class="container">
 		<SearchBar @termChange="onTermChange"></SearchBar>
-		<VideoList :videos="videos"></VideoList>
+		<div class="row">
+			<VideoDetail :video="current"></VideoDetail>
+			<VideoList
+				:videos="videos"
+				@videoSelect="onVideoSelect"
+			></VideoList>
+		</div>
 	</div>
 </template>
 
@@ -9,6 +15,7 @@
 import axios from 'axios';
 import SearchBar from './components/SearchBar.vue';
 import VideoList from './components/VideoList.vue';
+import VideoDetail from './components/VideoDetail.vue';
 
 export default {
 	name: 'App',
@@ -17,11 +24,16 @@ export default {
 			term: '',
 			key: process.env.VUE_APP_API_KEY,
 			videos: [],
+			current: null,
 		};
 	},
 	components: {
 		SearchBar,
 		VideoList,
+		VideoDetail,
+	},
+	created() {
+		this.onTermChange('cheese');
 	},
 	methods: {
 		onTermChange(term) {
@@ -36,7 +48,16 @@ export default {
 						q: this.term,
 					},
 				})
-				.then((response) => (this.videos = response.data.items));
+				.then((response) => {
+					this.videos = response.data.items;
+
+					if (this.current === null) {
+						this.current = this.videos[0];
+					}
+				});
+		},
+		onVideoSelect(video) {
+			this.current = video;
 		},
 	},
 };

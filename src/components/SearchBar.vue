@@ -1,6 +1,7 @@
 <template>
-	<div>
-		<input @input="onInput" />
+	<div class="mb-3">
+		<label class="form-label ">Search for A Video</label>
+		<input class="form-control " @input="onInput" />
 	</div>
 </template>
 
@@ -15,4 +16,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+input {
+	width: 100%;
+}
+
+div {
+	text-align: left;
+	margin: 20px;
+	padding: 15px;
+	border: 1px solid #ddd;
+}
+
+label {
+	font-weight: 500;
+}
+</style>
