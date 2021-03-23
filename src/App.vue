@@ -22,7 +22,7 @@ export default {
 	data() {
 		return {
 			term: '',
-			key: process.env.VUE_APP_API_KEY,
+			key: process.env.VUE_APP_YOUTUBE_API_KEY,
 			videos: [],
 			current: null,
 		};
