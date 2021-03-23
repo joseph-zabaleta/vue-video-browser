@@ -17,7 +17,7 @@ This is an application created using Vue v2. Overall purpose is to pratice and s
 
 I have created this application in both Vue.js and React.js. They are not exactly built the same in terms of styling libraries but they logic and components are similiar. Please checkout the React repository below to compare the two!
 
-[Vue Youtube Video Browser]()
+[Vue Youtube Video Browser](https://github.com/joseph-zabaleta/vue-video-browser)  
 [React Youtube Video Browser](https://github.com/joseph-zabaleta/react-video-browser.git)
 
 ## Installation
